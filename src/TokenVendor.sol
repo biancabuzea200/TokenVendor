@@ -22,6 +22,7 @@ contract TokenVendor {
     TokenInterface public minter;
     address public owner;
 
+
     constructor(address tokenAddress) {
         minter = TokenInterface(tokenAddress);
 
@@ -56,11 +57,6 @@ contract TokenVendor {
         uint256 amountUSD = amountWei * (ethUsd / 10 ** 18); // Price is 10**18
         uint256 amountToken = amountUSD / 10 ** 18; // Divide to convert from wei to ETH
         return amountToken;
-    }
-
-    function mint() external payable {
-        uint256 amountToken = tokenAmount(msg.value);
-        minter.mint(msg.sender, amountToken);
     }
 
     receive() external payable {
