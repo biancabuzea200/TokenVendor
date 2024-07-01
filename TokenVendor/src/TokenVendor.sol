@@ -46,11 +46,6 @@ contract TokenVendor {
         owner = msg.sender;
     }
 
-    function selfKiss() public {
-		// This allows the contract to read from the chronicle oracle.
-        selfKisser.selfKiss(address(chronicle));
-    }
-
     function read() internal view returns (uint256 val) {
         val = chronicle.read();
     }
