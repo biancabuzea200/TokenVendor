@@ -70,6 +70,7 @@ contract TokenVendor {
     }
 
     function withdraw() external onlyOwner {
-        payable(owner).transfer(address(this).balance);
+        (bool success, ) = owner.call{value: address(this).balance}("");
+        require(success, "Transfer failed.");
     }
 }
