@@ -5,8 +5,11 @@ This workshop use Ethereum Sepolia, however you can adapt it for your favourite 
 
 # How to Run it?
 
-## Export environment variables
+## Make sure to rename the .env.example to .env and add your environment variables
+
+## Export the environment variables
 ```source .env ```
+
 
 ## Build the projects's smart contracts
 ```forge build```
@@ -24,5 +27,5 @@ This workshop use Ethereum Sepolia, however you can adapt it for your favourite 
  -  0xD7A9066BBEed1fEb37105A1E53b90A6B62cbDEE2 represents the deployed Token.sol on Sepolia
 
 
-## Send some ETH
+## Send some ETH to the TokenVendor's address in exchange for our ERC20 Token
  ```cast send $TOKEN_VENDOR_ADDRESS  --value 0.01ether  --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY```
