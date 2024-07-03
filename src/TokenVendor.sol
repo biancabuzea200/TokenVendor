@@ -47,13 +47,13 @@ contract TokenVendor {
         owner = msg.sender;
     }
 
-    function read() internal view returns (uint256 val) {
+    function _read() internal view returns (uint256 val) {
         val = chronicle.read();
     }
 
     function tokenAmount(uint256 amountWei) public view returns (uint256) {
         // Send amountETH, how many USD I have
-        uint256 ethUsd = read(); // Price feed has 10**18 decimal places
+        uint256 ethUsd = _read(); // Price feed has 10**18 decimal places
         uint256 amountUSD = amountWei * (ethUsd / 10 ** 18); // Price is 10**18
         uint256 amountToken = amountUSD / 10 ** 18; // Divide to convert from wei to ETH
         return amountToken;
